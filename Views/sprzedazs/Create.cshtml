@@ -1,0 +1,117 @@
+﻿@model Komis.Models.sprzedaz
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Sprzedaż</h4>
+        <hr />
+       
+        <div class="form-group">
+            @Html.LabelFor(model => model.carid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control" id="carid" name="carid" onclick="getCar()" placeholder="carid" required>
+                    <option>Please select</option>
+                </select>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.custid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control" id="custid" name="custid" placeholder="custid" required>
+                    <option>Please select</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.custid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.cena, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cena, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cena, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.data_sprzedazy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="date" id="data_sprzedazy" name="data_sprzedazy" class="form-control" placeholder="Rentail Fee" required>
+                @Html.ValidationMessageFor(model => model.data_sprzedazy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script>
+        getCar();
+        function getCar() {
+            $.ajax({
+
+                type: 'GET',
+                url: '/sprzedazs/GetCar',
+                dataType: 'Json',
+                success: function (data) {
+                    console.log(data);
+
+                    for (var i = 0; i < data.length; i++) {
+
+                        $("#carid").append($("<option/>", {
+                            text: data[i].marka
+                        }));
+                    }
+                }
+            })
+        }
+
+        getCustomer();
+
+        function getCustomer() {
+            $("#custid").keyup(function (e)) {
+                $.ajax({
+
+                    type: 'POST',
+                    url: '/sprzedazs/Getid?id=' + $("#custid").val(),
+                    dataType: 'JSON',
+                    success: function (data) {
+                        console.log(data);
+                        $("#custid").val(data)
+
+                        }
+            
+        }
+
+    </script>
+
+}
+
+
+

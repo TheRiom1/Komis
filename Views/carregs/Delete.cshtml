@@ -1,0 +1,80 @@
+﻿@model Komis.Models.carreg
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>carreg</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nr_tablicy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nr_tablicy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.marka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rocznik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rocznik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.przebieg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.przebieg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kolor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kolor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dostepnosc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dostepnosc)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

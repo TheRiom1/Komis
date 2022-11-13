@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Komis.Models.carreg>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nr_tablicy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.marka)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rocznik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.przebieg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kolor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dostepnosc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nr_tablicy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.marka)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rocznik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.przebieg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kolor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dostepnosc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

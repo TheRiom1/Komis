@@ -1,0 +1,74 @@
+﻿@model Komis.Models.carreg
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>carreg</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nr_tablicy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nr_tablicy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.marka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rocznik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rocznik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.przebieg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.przebieg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kolor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kolor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dostepnosc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dostepnosc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
